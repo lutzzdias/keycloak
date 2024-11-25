@@ -10,7 +10,7 @@ app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 app.use(express.json());
 
-const authenticate = (req, res, next) => {
+const authenticate = (req, _, next) => {
   console.log(req.headers.authorization);
   next();
 };

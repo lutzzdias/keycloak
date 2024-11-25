@@ -5,7 +5,7 @@ const db = new Map();
 const router = Router();
 
 // Get all
-router.get("/", function (req, res) {
+router.get("/", function (_, res) {
   const books = Array.from(db.values());
   return res.status(200).json(books);
 });
@@ -21,7 +21,7 @@ router.get("/:id", function (req, res) {
 router.post("/", function (req, res) {
   const { title, author, finished } = req.body;
 
-  const id = db.size + 1;
+  const id = String(db.size + 1);
   const book = {
     id,
     title,
